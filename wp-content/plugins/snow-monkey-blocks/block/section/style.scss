@@ -1,0 +1,182 @@
+@charset 'utf-8';
+
+@import '../../src/css/core/block';
+
+.smb-section {
+  position: relative;
+
+  &__background,
+  &__fixed-background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  &__background,
+  &__fixed-background {
+    &__texture {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      mix-blend-mode: multiply;
+    }
+  }
+
+  &__dividers {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+  }
+
+  &__divider {
+    position: absolute;
+    right: -1px;
+    left: -1px;
+    line-height: 1;
+    font-size: 0;
+
+    svg {
+      position: absolute;
+      right: 0;
+      left: 0;
+      height: auto;
+      width: 100%;
+      max-height: 100px;
+    }
+
+    &--top {
+      top: -1px;
+
+      svg {
+        top: 0;
+        transform: rotateZ(180deg);
+      }
+    }
+
+    &--bottom {
+      bottom: -1px;
+
+      svg {
+        bottom: 0;
+      }
+    }
+
+    &--triangle {
+      svg {
+        margin: 0 auto;
+        max-width: 200px;
+      }
+    }
+  }
+
+  &__inner {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+
+    > .#{$_prefix}c-container {
+      position: relative;
+      flex: 1 1 auto;
+    }
+  }
+
+  &__subtitle {
+    @include _font-size-line-height($_base-font-size-px - 4);
+    text-align: center;
+  }
+
+  &__title {
+    text-align: center;
+  }
+
+  &__lede-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__lede {
+    @include _font-size-line-height($_base-font-size-px - 2);
+  }
+
+  &--left {
+    > .smb-section__inner {
+      > .#{$_prefix}c-container {
+        > .smb-section__subtitle,
+        > .smb-section__title,
+        > .smb-section__lede-wrapper > .smb-section__lede,
+        > .smb-section__body {
+          text-align: left;
+        }
+
+        > .smb-section__lede-wrapper {
+          display: block;
+        }
+
+        > .smb-section__title {
+          &::after {
+            margin-right: auto;
+            margin-left: 0;
+          }
+        }
+      }
+    }
+  }
+
+  &--center {
+    > .smb-section__inner {
+      > .#{$_prefix}c-container {
+        > .smb-section__subtitle,
+        > .smb-section__title,
+        > .smb-section__body {
+          text-align: center;
+        }
+
+        > .smb-section__title {
+          &::after {
+            margin-right: auto;
+            margin-left: auto;
+          }
+        }
+      }
+    }
+  }
+
+  &--right {
+    > .smb-section__inner {
+      > .#{$_prefix}c-container {
+        > .smb-section__subtitle,
+        > .smb-section__title,
+        > .smb-section__lede-wrapper > .smb-section__lede,
+        > .smb-section__body {
+          text-align: right;
+        }
+
+        > .smb-section__lede-wrapper {
+          display: block;
+        }
+
+        > .smb-section__title {
+          &::after {
+            margin-right: 0;
+            margin-left: auto;
+          }
+        }
+      }
+    }
+  }
+
+  &--wide > .smb-section__inner {
+    @supports(object-fit: cover) { // For IE11
+      min-height: 75vh;
+    }
+  }
+}

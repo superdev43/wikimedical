@@ -1,0 +1,9 @@
+/wp-admin
+/wp-includes
+wp-config.php
+/var
+/.vscode
+cache
+.listing
+/tests
+.env

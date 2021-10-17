@@ -1,0 +1,16 @@
+﻿
+/*
+Template:twentytwenty
+Theme Name:twentytwenty_child
+*/
+
+.post-author {display:none
+!important}
+
+.entry-date{
+	display: none;
+}
+.eckb-article-byline{
+	display: none;
+}
+
